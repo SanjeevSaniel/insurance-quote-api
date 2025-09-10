@@ -1,0 +1,597 @@
+{
+	"info": {
+		"_postman_id": "insurance-quote-api-collection",
+		"name": "Insurance Quote API",
+		"description": "Complete API collection for Insurance Aggregator Platform with eligibility checks, quote requests, and data management endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://my-json-server.typicode.com/YOUR-USERNAME/insurance-quote-api",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Eligibility Management",
+			"description": "Endpoints for checking and managing insurance eligibility",
+			"item": [
+				{
+					"name": "Get All Eligibility Checks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/eligibility",
+							"host": ["{{baseUrl}}"],
+							"path": ["eligibility"]
+						}
+					}
+				},
+				{
+					"name": "Get Specific Eligibility Check",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/eligibility/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["eligibility", "1"]
+						}
+					}
+				},
+				{
+					"name": "Create Eligibility Check",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestId\": \"ELIG-TEST-001\",\n  \"productType\": \"Business Insurance\",\n  \"state\": \"Texas\",\n  \"customerType\": \"Small Business\",\n  \"insuranceCompanyId\": \"INSCO-123\",\n  \"responseStatus\": \"Eligible\",\n  \"reason\": null,\n  \"timestamp\": \"2025-09-10T10:30:00Z\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/eligibility",
+							"host": ["{{baseUrl}}"],
+							"path": ["eligibility"]
+						}
+					}
+				},
+				{
+					"name": "Update Eligibility Check",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"requestId\": \"ELIG-20250903-001\",\n  \"productType\": \"Business Insurance\",\n  \"state\": \"Texas\",\n  \"customerType\": \"Small Business\",\n  \"insuranceCompanyId\": \"INSCO-123\",\n  \"responseStatus\": \"Not Eligible\",\n  \"reason\": \"Updated risk assessment\",\n  \"timestamp\": \"2025-09-10T10:30:00Z\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/eligibility/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["eligibility", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Quote Management",
+			"description": "Endpoints for managing insurance quotes and requests",
+			"item": [
+				{
+					"name": "Get All Quotes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/quotes",
+							"host": ["{{baseUrl}}"],
+							"path": ["quotes"]
+						}
+					}
+				},
+				{
+					"name": "Get Quotes by Queue ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/quotes?queueId=QUEUE-20250903-001",
+							"host": ["{{baseUrl}}"],
+							"path": ["quotes"],
+							"query": [
+								{
+									"key": "queueId",
+									"value": "QUEUE-20250903-001"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Specific Quote",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/quotes/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["quotes", "1"]
+						}
+					}
+				},
+				{
+					"name": "Create Quote Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"queueId\": \"QUEUE-TEST-001\",\n  \"requestId\": \"QUOTE-TEST-001\",\n  \"eligibilityResponseId\": \"ELIG-20250903-001\",\n  \"insuranceCompanyId\": \"INSCO-123\",\n  \"status\": \"Quote Processing\",\n  \"estimatedCompletionTime\": \"2025-09-11T10:30:00Z\",\n  \"timestamp\": \"2025-09-10T10:30:00Z\",\n  \"customerDetails\": {\n    \"name\": \"Test Customer\",\n    \"businessName\": \"Test Business LLC\",\n    \"email\": \"test@example.com\",\n    \"phone\": \"555-123-4567\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/quotes",
+							"host": ["{{baseUrl}}"],
+							"path": ["quotes"]
+						}
+					}
+				},
+				{
+					"name": "Update Quote Status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"queueId\": \"QUEUE-20250903-001\",\n  \"requestId\": \"QUOTE-20250903-001\",\n  \"eligibilityResponseId\": \"ELIG-20250903-001\",\n  \"insuranceCompanyId\": \"INSCO-123\",\n  \"status\": \"Quote Ready\",\n  \"timestamp\": \"2025-09-10T12:00:00Z\",\n  \"customerDetails\": {\n    \"name\": \"John Doe\",\n    \"businessName\": \"Doe Enterprises\",\n    \"email\": \"john.doe@example.com\",\n    \"phone\": \"512-555-1234\"\n  },\n  \"quoteDetails\": {\n    \"quoteId\": \"QUOTE-INSCO123-001\",\n    \"premium\": 1250.00,\n    \"coverageLimit\": 1000000,\n    \"deductible\": 500,\n    \"addOns\": [\"Cyber Liability\"],\n    \"validUntil\": \"2025-10-10\",\n    \"quoteSummaryPDFUrl\": \"https://insco123.com/quotes/QUOTE-INSCO123-001.pdf\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/quotes/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["quotes", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Insurance Companies",
+			"description": "Endpoints for managing insurance company information",
+			"item": [
+				{
+					"name": "Get All Companies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/companies",
+							"host": ["{{baseUrl}}"],
+							"path": ["companies"]
+						}
+					}
+				},
+				{
+					"name": "Get Specific Company",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/companies/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["companies", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Customer Management",
+			"description": "Endpoints for managing customer information",
+			"item": [
+				{
+					"name": "Get All Customers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/customers",
+							"host": ["{{baseUrl}}"],
+							"path": ["customers"]
+						}
+					}
+				},
+				{
+					"name": "Get Specific Customer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/customers/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["customers", "1"]
+						}
+					}
+				},
+				{
+					"name": "Create Customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customerId\": \"CUST-TEST-001\",\n  \"personalInfo\": {\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\",\n    \"email\": \"test.user@example.com\",\n    \"phone\": \"555-123-4567\",\n    \"dateOfBirth\": \"1990-01-01\"\n  },\n  \"businessInfo\": {\n    \"businessName\": \"Test Business LLC\",\n    \"businessType\": \"LLC\",\n    \"industryCode\": \"NAICS-541330\",\n    \"yearEstablished\": 2020,\n    \"employeeCount\": 10,\n    \"annualRevenue\": 1000000\n  },\n  \"address\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TX\",\n    \"zip\": \"12345\",\n    \"country\": \"USA\"\n  },\n  \"preferences\": {\n    \"preferredContactMethod\": \"email\",\n    \"communicationFrequency\": \"weekly\",\n    \"autoRenewal\": true\n  }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/customers",
+							"host": ["{{baseUrl}}"],
+							"path": ["customers"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Policy Management",
+			"description": "Endpoints for managing insurance policies",
+			"item": [
+				{
+					"name": "Get All Policies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/policies",
+							"host": ["{{baseUrl}}"],
+							"path": ["policies"]
+						}
+					}
+				},
+				{
+					"name": "Get Specific Policy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/policies/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["policies", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Claims Management",
+			"description": "Endpoints for managing insurance claims",
+			"item": [
+				{
+					"name": "Get All Claims",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/claims",
+							"host": ["{{baseUrl}}"],
+							"path": ["claims"]
+						}
+					}
+				},
+				{
+					"name": "Get Specific Claim",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/claims/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["claims", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Document Management",
+			"description": "Endpoints for managing uploaded documents",
+			"item": [
+				{
+					"name": "Get All Documents",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/documents",
+							"host": ["{{baseUrl}}"],
+							"path": ["documents"]
+						}
+					}
+				},
+				{
+					"name": "Get Specific Document",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/documents/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["documents", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Workflow Management",
+			"description": "Endpoints for tracking workflow progress",
+			"item": [
+				{
+					"name": "Get All Workflows",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/workflows",
+							"host": ["{{baseUrl}}"],
+							"path": ["workflows"]
+						}
+					}
+				},
+				{
+					"name": "Get Specific Workflow",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/workflows/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["workflows", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Agent Management",
+			"description": "Endpoints for managing insurance agents",
+			"item": [
+				{
+					"name": "Get All Agents",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/agents",
+							"host": ["{{baseUrl}}"],
+							"path": ["agents"]
+						}
+					}
+				},
+				{
+					"name": "Get Specific Agent",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/agents/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["agents", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Testing Scenarios",
+			"description": "Common testing scenarios and workflows",
+			"item": [
+				{
+					"name": "Complete Quote Workflow - Step 1: Check Eligibility",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestId\": \"ELIG-WORKFLOW-001\",\n  \"productType\": \"Business Insurance\",\n  \"state\": \"Texas\",\n  \"customerType\": \"Small Business\",\n  \"insuranceCompanyId\": \"INSCO-123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/eligibility",
+							"host": ["{{baseUrl}}"],
+							"path": ["eligibility"]
+						}
+					}
+				},
+				{
+					"name": "Complete Quote Workflow - Step 2: Request Quote",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"queueId\": \"QUEUE-WORKFLOW-001\",\n  \"requestId\": \"QUOTE-WORKFLOW-001\",\n  \"eligibilityResponseId\": \"ELIG-WORKFLOW-001\",\n  \"insuranceCompanyId\": \"INSCO-123\",\n  \"status\": \"Quote Processing\",\n  \"customerDetails\": {\n    \"name\": \"Workflow Test Customer\",\n    \"businessName\": \"Test Business LLC\",\n    \"email\": \"workflow@example.com\",\n    \"phone\": \"555-WORKFLOW\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/quotes",
+							"host": ["{{baseUrl}}"],
+							"path": ["quotes"]
+						}
+					}
+				},
+				{
+					"name": "Complete Quote Workflow - Step 3: Check Quote Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/quotes?queueId=QUEUE-WORKFLOW-001",
+							"host": ["{{baseUrl}}"],
+							"path": ["quotes"],
+							"query": [
+								{
+									"key": "queueId",
+									"value": "QUEUE-WORKFLOW-001"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Load Test - Multiple Quote Requests",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"queueId\": \"QUEUE-LOAD-{{$randomInt}}\",\n  \"requestId\": \"QUOTE-LOAD-{{$randomInt}}\",\n  \"insuranceCompanyId\": \"INSCO-{{$randomInt}}\",\n  \"status\": \"Quote Processing\",\n  \"customerDetails\": {\n    \"name\": \"Load Test Customer {{$randomInt}}\",\n    \"businessName\": \"Load Test Business {{$randomInt}}\",\n    \"email\": \"loadtest{{$randomInt}}@example.com\",\n    \"phone\": \"555-{{$randomInt}}\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/quotes",
+							"host": ["{{baseUrl}}"],
+							"path": ["quotes"]
+						}
+					}
+				}
+			]
+		}
+	]
+}
