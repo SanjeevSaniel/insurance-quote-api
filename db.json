@@ -191,5 +191,6 @@
             "reason": "Unable to provide coverage for specified risk profile",
             "timestamp": "2025-09-04T12:15:00Z"
         }
-    ]
+    ],
+    "oldData": []
 }
