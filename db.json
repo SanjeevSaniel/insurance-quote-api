@@ -1,0 +1,74 @@
+{
+    "eligibility": [
+        {
+            "id": 1,
+            "requestId": "ELIG-20250903-001",
+            "productType": "Business Insurance",
+            "state": "Texas",
+            "customerType": "Small Business",
+            "insuranceCompanyId": "INSCO-123",
+            "responseStatus": "Eligible",
+            "reason": null,
+            "timestamp": "2025-09-03T11:30:00Z"
+        }
+    ],
+    "quotes": [
+        {
+            "id": 1,
+            "queueId": "QUEUE-20250903-001",
+            "requestId": "QUOTE-20250903-001",
+            "insuranceCompanyId": "INSCO-123",
+            "status": "Quote Processing",
+            "estimatedCompletionTime": "2025-09-04T11:30:00Z",
+            "timestamp": "2025-09-03T11:35:00Z"
+        },
+        {
+            "id": 2,
+            "queueId": "QUEUE-20250903-002",
+            "requestId": "QUOTE-20250903-002",
+            "insuranceCompanyId": "INSCO-456",
+            "status": "Quote Ready",
+            "quoteDetails": {
+                "quoteId": "QUOTE-INSCO456-002",
+                "premium": 1450.00,
+                "coverageLimit": 1000000,
+                "deductible": 500,
+                "addOns": [
+                    "Cyber Liability",
+                    "Business Interruption"
+                ],
+                "validUntil": "2025-10-03",
+                "quoteSummaryPDFUrl": "https://insco456.com/quotes/QUOTE-INSCO456-002.pdf"
+            },
+            "timestamp": "2025-09-04T11:30:00Z"
+        }
+    ],
+    "companies": [
+        {
+            "id": 1,
+            "companyId": "INSCO-123",
+            "name": "SafeGuard Insurance",
+            "eligibilityRate": 85,
+            "avgProcessingHours": 24,
+            "supportedStates": [
+                "TX",
+                "CA",
+                "FL",
+                "NY"
+            ]
+        },
+        {
+            "id": 2,
+            "companyId": "INSCO-456",
+            "name": "TrustShield Corp",
+            "eligibilityRate": 75,
+            "avgProcessingHours": 48,
+            "supportedStates": [
+                "TX",
+                "CA",
+                "AZ",
+                "NV"
+            ]
+        }
+    ]
+}
