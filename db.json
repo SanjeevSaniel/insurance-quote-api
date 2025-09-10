@@ -157,7 +157,7 @@
             "queueId": "QUEUE-20250903-001",
             "requestId": "QUOTE-20250903-001",
             "eligibilityResponseId": "ELIG-20250903-001",
-            "insuranceCompanyId": "CARR001",
+            "insuranceCompanyId": "INSCO-123",
             "status": "Quote Processing",
             "estimatedCompletionTime": "2025-09-04T11:30:00Z",
             "timestamp": "2025-09-03T11:35:00Z"
@@ -166,11 +166,10 @@
             "id": 2,
             "queueId": "QUEUE-20250903-002",
             "requestId": "QUOTE-20250903-002",
-            "eligibilityResponseId": "ELIG-20250903-002",
-            "insuranceCompanyId": "CARR002",
+            "insuranceCompanyId": "INSCO-789",
             "status": "Quote Ready",
             "quoteDetails": {
-                "quoteId": "QUOTE-CARR002-002",
+                "quoteId": "QUOTE-INSCO789-002",
                 "premium": 1450.00,
                 "coverageLimit": 1000000,
                 "deductible": 500,
@@ -179,7 +178,7 @@
                     "Business Interruption"
                 ],
                 "validUntil": "2025-10-03",
-                "quoteSummaryPDFUrl": "https://carrierb.com/quotes/QUOTE-CARR002-002.pdf"
+                "quoteSummaryPDFUrl": "https://insco789.com/quotes/QUOTE-INSCO789-002.pdf"
             },
             "timestamp": "2025-09-04T11:30:00Z"
         },
@@ -187,127 +186,10 @@
             "id": 3,
             "queueId": "QUEUE-20250903-003",
             "requestId": "QUOTE-20250903-003",
-            "eligibilityResponseId": "ELIG-20250903-003",
-            "insuranceCompanyId": "CARR003",
+            "insuranceCompanyId": "INSCO-456",
             "status": "Quote Failed",
             "reason": "Unable to provide coverage for specified risk profile",
             "timestamp": "2025-09-04T12:15:00Z"
-        },
-        {
-            "id": 4,
-            "queueId": "QUEUE-20250903-004",
-            "requestId": "QUOTE-20250903-004",
-            "eligibilityResponseId": "ELIG-20250903-001",
-            "insuranceCompanyId": "CARR001",
-            "status": "Quote Ready",
-            "quoteDetails": {
-                "quoteId": "QUOTE-CARR001-004",
-                "premium": 1200.00,
-                "coverageLimit": 500000,
-                "deductible": 1000,
-                "addOns": [
-                    "General Liability"
-                ],
-                "validUntil": "2025-10-15",
-                "quoteSummaryPDFUrl": "https://carriera.com/quotes/QUOTE-CARR001-004.pdf"
-            },
-            "timestamp": "2025-09-04T13:00:00Z"
-        },
-        {
-            "id": 5,
-            "queueId": "QUEUE-20250903-005",
-            "requestId": "QUOTE-20250903-005",
-            "eligibilityResponseId": "ELIG-20250903-002",
-            "insuranceCompanyId": "CARR002",
-            "status": "Quote Processing",
-            "estimatedCompletionTime": "2025-09-05T10:00:00Z",
-            "timestamp": "2025-09-04T14:30:00Z"
-        },
-        {
-            "id": 6,
-            "queueId": "QUEUE-20250903-006",
-            "requestId": "QUOTE-20250903-006",
-            "eligibilityResponseId": "ELIG-20250903-003",
-            "insuranceCompanyId": "CARR003",
-            "status": "Quote Ready",
-            "quoteDetails": {
-                "quoteId": "QUOTE-CARR003-006",
-                "premium": 1800.00,
-                "coverageLimit": 2000000,
-                "deductible": 250,
-                "addOns": [
-                    "Cyber Liability",
-                    "Business Interruption",
-                    "Professional Liability"
-                ],
-                "validUntil": "2025-11-01",
-                "quoteSummaryPDFUrl": "https://carrierc.com/quotes/QUOTE-CARR003-006.pdf"
-            },
-            "timestamp": "2025-09-04T15:45:00Z"
-        },
-        {
-            "id": 7,
-            "queueId": "QUEUE-20250903-007",
-            "requestId": "QUOTE-20250903-007",
-            "eligibilityResponseId": "ELIG-20250903-001",
-            "insuranceCompanyId": "CARR001",
-            "status": "Quote Processing",
-            "estimatedCompletionTime": "2025-09-05T12:00:00Z",
-            "timestamp": "2025-09-04T16:00:00Z"
-        },
-        {
-            "id": 8,
-            "queueId": "QUEUE-20250903-008",
-            "requestId": "QUOTE-20250903-008",
-            "eligibilityResponseId": "ELIG-20250903-002",
-            "insuranceCompanyId": "CARR002",
-            "status": "Quote Failed",
-            "reason": "Risk assessment indicates high probability of claims",
-            "timestamp": "2025-09-04T17:30:00Z"
-        },
-        {
-            "id": 9,
-            "queueId": "QUEUE-20250903-009",
-            "requestId": "QUOTE-20250903-009",
-            "eligibilityResponseId": "ELIG-20250903-003",
-            "insuranceCompanyId": "CARR003",
-            "status": "Quote Ready",
-            "quoteDetails": {
-                "quoteId": "QUOTE-CARR003-009",
-                "premium": 950.00,
-                "coverageLimit": 750000,
-                "deductible": 750,
-                "addOns": [
-                    "General Liability",
-                    "Product Liability"
-                ],
-                "validUntil": "2025-10-20",
-                "quoteSummaryPDFUrl": "https://carrierc.com/quotes/QUOTE-CARR003-009.pdf"
-            },
-            "timestamp": "2025-09-04T18:15:00Z"
-        },
-        {
-            "id": 10,
-            "queueId": "QUEUE-20250903-010",
-            "requestId": "QUOTE-20250903-010",
-            "eligibilityResponseId": "ELIG-20250903-001",
-            "insuranceCompanyId": "CARR001",
-            "status": "Quote Ready",
-            "quoteDetails": {
-                "quoteId": "QUOTE-CARR001-010",
-                "premium": 2100.00,
-                "coverageLimit": 3000000,
-                "deductible": 100,
-                "addOns": [
-                    "Cyber Liability",
-                    "Business Interruption",
-                    "Directors and Officers",
-                    "Employment Practices"
-                ],
-                "validUntil": "2025-12-31",
-                "quoteSummaryPDFUrl": "https://carriera.com/quotes/QUOTE-CARR001-010.pdf"
-            },
-            "timestamp": "2025-09-04T19:00:00Z"
         }
     ]
 }
