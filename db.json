@@ -210,12 +210,11 @@
     ],
     "fetchQuotes": [
         {
-            "queueId": "QUEUE-20250903-002",
-            "insuranceCompanyId": "CARR002",
-            "eligibilityResponseId": "ELIG-20250903-002",
+            "queueId": "QUEUE-20250903-001",
+            "insuranceCompanyId": "CARR001",
             "status": "Quote Ready",
             "quoteDetails": {
-                "quoteId": "QUOTE-CARR002-002",
+                "quoteId": "QUOTE-CARR001-001",
                 "premium": 1450.0,
                 "coverageLimit": 1000000,
                 "deductible": 500,
@@ -225,13 +224,11 @@
                 ],
                 "validUntil": "2025-10-03",
                 "quoteSummaryPDFUrl": "https://carrierb.com/quotes/QUOTE-CARR002-002.pdf"
-            },
-            "timestamp": "2025-09-04T11:30:00Z"
+            }
         },
         {
-            "queueId": "QUEUE-20250903-004",
+            "queueId": "QUEUE-20250903-002",
             "insuranceCompanyId": "CARR001",
-            "eligibilityResponseId": "ELIG-20250903-001",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR001-004",
@@ -243,13 +240,11 @@
                 ],
                 "validUntil": "2025-10-15",
                 "quoteSummaryPDFUrl": "https://carriera.com/quotes/QUOTE-CARR001-004.pdf"
-            },
-            "timestamp": "2025-09-04T13:00:00Z"
+            }
         },
         {
-            "queueId": "QUEUE-20250903-006",
+            "queueId": "QUEUE-20250903-003",
             "insuranceCompanyId": "CARR007",
-            "eligibilityResponseId": "ELIG-20250903-007",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR007-006",
@@ -262,8 +257,40 @@
                 ],
                 "validUntil": "2025-11-01",
                 "quoteSummaryPDFUrl": "https://carrierg.com/quotes/QUOTE-CARR007-006.pdf"
-            },
-            "timestamp": "2025-09-04T15:45:00Z"
+            }
+        },
+        {
+            "queueId": "QUEUE-20250903-004",
+            "insuranceCompanyId": "CARR006",
+            "status": "Quote Ready",
+            "quoteDetails": {
+                "quoteId": "QUOTE-CARR006-003",
+                "premium": 1600.0,
+                "coverageLimit": 1500000,
+                "deductible": 300,
+                "addOns": [
+                    "Business Interruption"
+                ],
+                "validUntil": "2025-10-20",
+                "quoteSummaryPDFUrl": "https://carrierf.com/quotes/QUOTE-CARR006-003.pdf"
+            }
+        },
+        {
+            "queueId": "QUEUE-20250903-005",
+            "insuranceCompanyId": "CARR003",
+            "status": "Quote Ready",
+            "quoteDetails": {
+                "quoteId": "QUOTE-CARR003-005",
+                "premium": 1300.0,
+                "coverageLimit": 800000,
+                "deductible": 600,
+                "addOns": [
+                    "General Liability",
+                    "Professional Liability"
+                ],
+                "validUntil": "2025-10-10",
+                "quoteSummaryPDFUrl": "https://carrierc.com/quotes/QUOTE-CARR003-005.pdf"
+            }
         }
     ]
 }
