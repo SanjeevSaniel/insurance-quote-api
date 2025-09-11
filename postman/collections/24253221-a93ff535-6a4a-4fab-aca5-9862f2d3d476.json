@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "24253221-a93ff535-6a4a-4fab-aca5-9862f2d3d476",
+		"name": "A - Insurance Comparator APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "A. Eligibility Check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a58a496-17a9-4a6b-ad9b-ac7ffa39c996",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Generate current timestamp for this API call\r",
+							"const currentTimestamp = new Date().toISOString();\r",
+							"const eligibilityTimestamp = currentTimestamp;\r",
+							"\r",
+							"// Store timestamp for reference across requests\r",
+							"pm.environment.set(\"eligibility_timestamp\", eligibilityTimestamp);\r",
+							"\r",
+							"// Extract eligibility response data\r",
+							"const responseJson = pm.response.json();\r",
+							"if (responseJson && responseJson.length > 0) {\r",
+							"    const eligibilityRecord = responseJson[0];\r",
+							"    \r",
+							"    // Override response timestamp with current time\r",
+							"    eligibilityRecord.timestamp = eligibilityTimestamp;\r",
+							"    eligibilityRecord.processed_at = new Date().getTime(); // Unix timestamp\r",
+							"    \r",
+							"    // Store values for next API calls\r",
+							"    pm.environment.set(\"current_eligibilityResponseId\", eligibilityRecord.requestId);\r",
+							"    pm.environment.set(\"current_carrierID\", eligibilityRecord.CarrierID);\r",
+							"    \r",
+							"    console.log(\"🕐 Eligibility processed at:\", eligibilityTimestamp);\r",
+							"    console.log(\"📋 Status:\", eligibilityRecord.responseStatus);\r",
+							"    console.log(\"🏢 Carrier:\", eligibilityRecord.CarrierName);\r",
+							"    \r",
+							"    // Enhanced response object with dynamic data\r",
+							"    const enhancedResponse = {\r",
+							"        ...eligibilityRecord,\r",
+							"        timestamp: eligibilityTimestamp,\r",
+							"        api_call_duration: pm.response.responseTime + \"ms\",\r",
+							"        response_received_at: new Date().toLocaleString()\r",
+							"    };\r",
+							"    \r",
+							"    pm.environment.set(\"last_eligibility_response\", JSON.stringify(enhancedResponse));\r",
+							"    \r",
+							"} else {\r",
+							"    console.log(\"❌ No eligibility records found\");\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "47fe754c-b1d0-4657-b39c-a265601773e9",
+						"exec": [
+							"// Generate dynamic requestId if not set\r",
+							"if (!pm.environment.get(\"current_requestId\")) {\r",
+							"    const counter = pm.environment.get(\"test_requestId_counter\") || 1;\r",
+							"    const requestId = `ELIG-20250903-${String(counter).padStart(3, '0')}`;\r",
+							"    pm.environment.set(\"current_requestId\", requestId);\r",
+							"    console.log(\"Generated requestId:\", requestId);\r",
+							"}\r",
+							"\r",
+							"console.log(\"Testing eligibility for:\", pm.environment.get(\"current_requestId\"));\r",
+							"\r",
+							"// // Increment API sequence counter\r",
+							"// const counter = parseInt(pm.environment.get(\"api_sequence_counter\") || \"0\") + 1;\r",
+							"// pm.environment.set(\"api_sequence_counter\", counter.toString());\r",
+							"\r",
+							"// // Generate dynamic request ID with current timestamp\r",
+							"// const now = new Date();\r",
+							"// const dateStr = now.toISOString().slice(0,10).replace(/-/g,'');\r",
+							"// const timeStr = now.toISOString().slice(11,19).replace(/:/g,'');\r",
+							"\r",
+							"// // For eligibility requests\r",
+							"// if (pm.request.url.path.includes('eligibility')) {\r",
+							"//     const dynamicRequestId = `ELIG-${dateStr}-${counter.toString().padStart(3, '0')}`;\r",
+							"//     pm.environment.set(\"current_requestId\", dynamicRequestId);\r",
+							"//     console.log(\"🆔 Generated dynamic requestId:\", dynamicRequestId);\r",
+							"// }\r",
+							"\r",
+							"// console.log(\"🔄 API Call #\" + counter + \" at \" + now.toLocaleTimeString());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "24253221-fa7a8043-1cd6-45e3-a297-edbcc9c331a4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/eligibility?requestId={{current_requestId}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"eligibility"
+					],
+					"query": [
+						{
+							"key": "requestId",
+							"value": "{{current_requestId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B. Request Quote",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0585caff-cdc6-4d95-9f7b-4637420b3eca",
+						"exec": [
+							"// Check if we have eligibilityResponseId from previous call\r",
+							"const eligibilityResponseId = pm.environment.get(\"current_eligibilityResponseId\");\r",
+							"\r",
+							"if (!eligibilityResponseId) {\r",
+							"    console.log(\"No eligibilityResponseId found. Please run Eligibility Check first.\");\r",
+							"    // Set a default for testing\r",
+							"    pm.environment.set(\"current_eligibilityResponseId\", \"ELIG-20250903-001\");\r",
+							"}\r",
+							"\r",
+							"console.log(\"Requesting quote for eligibility:\", pm.environment.get(\"current_eligibilityResponseId\"));\r",
+							"\r",
+							"// Increment API sequence counter\r",
+							"const counter = parseInt(pm.environment.get(\"api_sequence_counter\") || \"0\") + 1;\r",
+							"pm.environment.set(\"api_sequence_counter\", counter.toString());\r",
+							"\r",
+							"// Generate dynamic request ID with current timestamp\r",
+							"const now = new Date();\r",
+							"const dateStr = now.toISOString().slice(0,10).replace(/-/g,'');\r",
+							"const timeStr = now.toISOString().slice(11,19).replace(/:/g,'');\r",
+							"\r",
+							"// For eligibility requests\r",
+							"if (pm.request.url.path.includes('eligibility')) {\r",
+							"    const dynamicRequestId = `ELIG-${dateStr}-${counter.toString().padStart(3, '0')}`;\r",
+							"    pm.environment.set(\"current_requestId\", dynamicRequestId);\r",
+							"    console.log(\"🆔 Generated dynamic requestId:\", dynamicRequestId);\r",
+							"}\r",
+							"\r",
+							"console.log(\"🔄 API Call #\" + counter + \" at \" + now.toLocaleTimeString());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4544b15d-e202-498c-b54f-b7482866f0a3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Generate timestamps for quote request processing\r",
+							"const quoteRequestTimestamp = new Date().toISOString();\r",
+							"const estimatedCompletionTime = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(); // 24 hours from now\r",
+							"\r",
+							"// Store quote request timing\r",
+							"pm.environment.set(\"quote_request_timestamp\", quoteRequestTimestamp);\r",
+							"\r",
+							"const responseJson = pm.response.json();\r",
+							"if (responseJson && responseJson.length > 0) {\r",
+							"    const quoteRecord = responseJson[0];\r",
+							"    \r",
+							"    // Override timestamps with dynamic values\r",
+							"    quoteRecord.timestamp = quoteRequestTimestamp;\r",
+							"    quoteRecord.estimatedCompletionTime = estimatedCompletionTime;\r",
+							"    quoteRecord.request_received_at = new Date().getTime();\r",
+							"    \r",
+							"    // Generate queue ID with timestamp if not present\r",
+							"    if (!quoteRecord.queueId) {\r",
+							"        const queueSuffix = new Date().toISOString().slice(0,10).replace(/-/g,'');\r",
+							"        quoteRecord.queueId = `QUEUE-${queueSuffix}-${Math.floor(Math.random() * 1000)}`;\r",
+							"    }\r",
+							"    \r",
+							"    pm.environment.set(\"current_queueId\", quoteRecord.queueId);\r",
+							"    \r",
+							"    console.log(\"🕐 Quote requested at:\", quoteRequestTimestamp);\r",
+							"    console.log(\"🎯 Queue ID:\", quoteRecord.queueId);\r",
+							"    console.log(\"⏱️ Estimated completion:\", estimatedCompletionTime);\r",
+							"    console.log(\"📊 Status:\", quoteRecord.status);\r",
+							"    \r",
+							"    // Calculate estimated processing time\r",
+							"    const eligibilityTime = new Date(pm.environment.get(\"eligibility_timestamp\"));\r",
+							"    const processingTime = new Date(quoteRequestTimestamp) - eligibilityTime;\r",
+							"    \r",
+							"    const enhancedQuoteResponse = {\r",
+							"        ...quoteRecord,\r",
+							"        timestamp: quoteRequestTimestamp,\r",
+							"        estimatedCompletionTime: estimatedCompletionTime,\r",
+							"        processing_time_from_eligibility: processingTime + \"ms\",\r",
+							"        queue_position: Math.floor(Math.random() * 10) + 1 // Simulated queue position\r",
+							"    };\r",
+							"    \r",
+							"    pm.environment.set(\"last_quote_request_response\", JSON.stringify(enhancedQuoteResponse));\r",
+							"    \r",
+							"} else {\r",
+							"    console.log(\"❌ No quote records found for eligibility:\", pm.environment.get(\"current_eligibilityResponseId\"));\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "24253221-c3e67c6e-9a19-4366-b631-7df3ad576ce2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/quotes?eligibilityResponseId={{current_eligibilityResponseId}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"quotes"
+					],
+					"query": [
+						{
+							"key": "eligibilityResponseId",
+							"value": "{{current_eligibilityResponseId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "C. Quote Retrieval",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "86ba2e71-1c13-4ac5-8987-958931ed2cc4",
+						"exec": [
+							"// Check if we have queueId from previous call\r",
+							"const queueId = pm.environment.get(\"current_queueId\");\r",
+							"\r",
+							"if (!queueId) {\r",
+							"    console.log(\"No queueId found. Please run Quote Request first.\");\r",
+							"    // Set a default for testing\r",
+							"    pm.environment.set(\"current_queueId\", \"QUEUE-20250903-002\");\r",
+							"}\r",
+							"\r",
+							"console.log(\"Retrieving quote for queueId:\", pm.environment.get(\"current_queueId\"));\r",
+							"\r",
+							"// Increment API sequence counter\r",
+							"const counter = parseInt(pm.environment.get(\"api_sequence_counter\") || \"0\") + 1;\r",
+							"pm.environment.set(\"api_sequence_counter\", counter.toString());\r",
+							"\r",
+							"// Generate dynamic request ID with current timestamp\r",
+							"const now = new Date();\r",
+							"const dateStr = now.toISOString().slice(0,10).replace(/-/g,'');\r",
+							"const timeStr = now.toISOString().slice(11,19).replace(/:/g,'');\r",
+							"\r",
+							"// For eligibility requests\r",
+							"if (pm.request.url.path.includes('eligibility')) {\r",
+							"    const dynamicRequestId = `ELIG-${dateStr}-${counter.toString().padStart(3, '0')}`;\r",
+							"    pm.environment.set(\"current_requestId\", dynamicRequestId);\r",
+							"    console.log(\"🆔 Generated dynamic requestId:\", dynamicRequestId);\r",
+							"}\r",
+							"\r",
+							"console.log(\"🔄 API Call #\" + counter + \" at \" + now.toLocaleTimeString());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "32095715-8eea-4db1-ad99-89485d2efa81",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Generate timestamp for quote retrieval\r",
+							"const retrievalTimestamp = new Date().toISOString();\r",
+							"const retrievalTime = new Date().getTime();\r",
+							"\r",
+							"pm.environment.set(\"quote_retrieval_timestamp\", retrievalTimestamp);\r",
+							"\r",
+							"const responseJson = pm.response.json();\r",
+							"if (responseJson && responseJson.length > 0) {\r",
+							"    const quoteRecord = responseJson[0];\r",
+							"    \r",
+							"    // Override timestamp with current time\r",
+							"    quoteRecord.timestamp = retrievalTimestamp;\r",
+							"    quoteRecord.retrieved_at = retrievalTime;\r",
+							"    \r",
+							"    // Calculate total processing time\r",
+							"    const requestTime = new Date(pm.environment.get(\"quote_request_timestamp\"));\r",
+							"    const totalProcessingTime = new Date(retrievalTimestamp) - requestTime;\r",
+							"    \r",
+							"    console.log(\"🕐 Quote retrieved at:\", retrievalTimestamp);\r",
+							"    console.log(\"📋 Status:\", quoteRecord.status);\r",
+							"    console.log(\"⏱️ Total processing time:\", Math.round(totalProcessingTime / 1000) + \" seconds\");\r",
+							"    \r",
+							"    if (quoteRecord.status === \"Quote Ready\" && quoteRecord.quoteDetails) {\r",
+							"        // Add dynamic quote generation timestamp\r",
+							"        quoteRecord.quoteDetails.generated_at = retrievalTimestamp;\r",
+							"        quoteRecord.quoteDetails.expires_at = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(); // 30 days\r",
+							"        \r",
+							"        console.log(\"💰 Premium:\", quoteRecord.quoteDetails.premium);\r",
+							"        console.log(\"🛡️ Coverage:\", quoteRecord.quoteDetails.coverageLimit);\r",
+							"        console.log(\"📅 Valid until:\", quoteRecord.quoteDetails.validUntil);\r",
+							"        \r",
+							"    } else if (quoteRecord.status === \"Quote Processing\") {\r",
+							"        // Calculate remaining processing time\r",
+							"        const estimatedCompletion = new Date(quoteRecord.estimatedCompletionTime || Date.now() + 60000);\r",
+							"        const remainingTime = estimatedCompletion - new Date();\r",
+							"        \r",
+							"        console.log(\"⏳ Still processing... Estimated remaining time:\", Math.round(remainingTime / 60000) + \" minutes\");\r",
+							"        \r",
+							"    } else if (quoteRecord.status === \"Quote Failed\") {\r",
+							"        console.log(\"❌ Quote failed:\", quoteRecord.reason);\r",
+							"    }\r",
+							"    \r",
+							"    // Enhanced response with timing analysis\r",
+							"    const enhancedRetrievalResponse = {\r",
+							"        ...quoteRecord,\r",
+							"        timestamp: retrievalTimestamp,\r",
+							"        total_processing_duration: Math.round(totalProcessingTime / 1000) + \" seconds\",\r",
+							"        api_call_sequence: {\r",
+							"            eligibility_at: pm.environment.get(\"eligibility_timestamp\"),\r",
+							"            quote_request_at: pm.environment.get(\"quote_request_timestamp\"),\r",
+							"            quote_retrieval_at: retrievalTimestamp\r",
+							"        }\r",
+							"    };\r",
+							"    \r",
+							"    pm.environment.set(\"last_quote_retrieval_response\", JSON.stringify(enhancedRetrievalResponse));\r",
+							"    \r",
+							"} else {\r",
+							"    console.log(\"❌ No quote found for queueId:\", pm.environment.get(\"current_queueId\"));\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "24253221-0e46c83b-074b-4c73-958e-75a1ae345f6d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/quotes?queueId={{current_queueId}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"quotes"
+					],
+					"query": [
+						{
+							"key": "queueId",
+							"value": "{{current_queueId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
