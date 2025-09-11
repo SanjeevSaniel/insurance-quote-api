@@ -2,93 +2,63 @@
     "eligibility": [
         {
             "requestId": "ELIG-20250903-001",
-            "responseStatus": "Eligible",
+            "status": "Eligible",
             "CarrierName": "Carrier A Insurance",
-            "CarrierID": "CARR001",
-            "LinesOfBusiness": "Auto, Home, Life",
-            "LicensingStates": "IL, IN, WI",
-            "NAICCode": 12345
+            "CarrierID": "CARR001"
         },
         {
             "requestId": "ELIG-20250903-002",
-            "responseStatus": "Eligible",
+            "status": "Eligible",
             "CarrierName": "Carrier B Group",
-            "CarrierID": "CARR002",
-            "LinesOfBusiness": "Health, Auto",
-            "LicensingStates": "IL, MO",
-            "NAICCode": 67890
+            "CarrierID": "CARR002"
         },
         {
             "requestId": "ELIG-20250903-003",
-            "responseStatus": "Eligible",
+            "status": "Eligible",
             "CarrierName": "Carrier C Insurance",
-            "CarrierID": "CARR003",
-            "LinesOfBusiness": "Home, Life",
-            "LicensingStates": "IL, KY",
-            "NAICCode": 13579
+            "CarrierID": "CARR003"
         },
         {
             "requestId": "ELIG-20250903-004",
-            "responseStatus": "Not Eligible",
+            "status": "Not Eligible",
             "CarrierName": "Carrier D Corp",
-            "CarrierID": "CARR004",
-            "LinesOfBusiness": "Commercial, Liability",
-            "LicensingStates": "IL, TX",
-            "NAICCode": 24680
+            "CarrierID": "CARR004"
         },
         {
             "requestId": "ELIG-20250903-005",
-            "responseStatus": "Not Eligible",
+            "status": "Not Eligible",
             "CarrierName": "Carrier E Health",
-            "CarrierID": "CARR005",
-            "LinesOfBusiness": "Health, Life",
-            "LicensingStates": "IL, OH",
-            "NAICCode": 98765
+            "CarrierID": "CARR005"
         },
         {
             "requestId": "ELIG-20250903-006",
-            "responseStatus": "Eligible",
+            "status": "Eligible",
             "CarrierName": "Carrier F Solutions",
-            "CarrierID": "CARR006",
-            "LinesOfBusiness": "Auto, Specialty",
-            "LicensingStates": "IL, CA",
-            "NAICCode": 54321
+            "CarrierID": "CARR006"
         },
         {
             "requestId": "ELIG-20250903-007",
-            "responseStatus": "Eligible",
+            "status": "Eligible",
             "CarrierName": "Carrier G Insurance",
-            "CarrierID": "CARR007",
-            "LinesOfBusiness": "Home, Auto",
-            "LicensingStates": "IL, NY",
-            "NAICCode": 13579
+            "CarrierID": "CARR007"
         },
         {
             "requestId": "ELIG-20250903-008",
-            "responseStatus": "Not Eligible",
+            "status": "Not Eligible",
             "CarrierName": "Carrier H Services",
-            "CarrierID": "CARR008",
-            "LinesOfBusiness": "Life, Health",
-            "LicensingStates": "IL, FL",
-            "NAICCode": 24680
+            "CarrierID": "CARR008"
         },
         {
             "requestId": "ELIG-20250903-009",
-            "responseStatus": "Not Eligible",
+            "status": "Not Eligible",
             "CarrierName": "Carrier I Insure",
-            "CarrierID": "CARR009",
-            "LinesOfBusiness": "Auto, Home",
-            "LicensingStates": "IL, VA",
-            "NAICCode": 98765
+            "CarrierID": "CARR009"
         },
         {
             "requestId": "ELIG-20250903-010",
-            "responseStatus": "Not Eligible",
+            "status": "Not Eligible",
             "CarrierName": "Carrier J Group",
-            "CarrierID": "CARR010",
-            "LinesOfBusiness": "Commercial, Liability",
-            "LicensingStates": "IL, WA",
-            "NAICCode": 13579
+            "CarrierID": "CARR010"
         }
     ],
     "quotes": [
@@ -168,64 +138,31 @@
                     "Business Interruption"
                 ],
                 "validUntil": "2025-10-03",
-                "quoteSummaryPDFUrl": "https://carrierb.com/quotes/QUOTE-CARR002-002.pdf"
+                "quoteSummaryPDFUrl": "https://carriera.com/quotes/QUOTE-CARR001-001.pdf"
             }
         },
         {
             "queueId": "QUEUE-20250903-002",
-            "insuranceCompanyId": "CARR001",
+            "insuranceCompanyId": "CARR002",
             "status": "Quote Ready",
             "quoteDetails": {
-                "quoteId": "QUOTE-CARR001-004",
-                "premium": 1200.0,
-                "coverageLimit": 750000,
-                "deductible": 750,
+                "quoteId": "QUOTE-CARR002-002",
+                "premium": 1100.0,
+                "coverageLimit": 700000,
+                "deductible": 800,
                 "addOns": [
-                    "General Liability"
+                    "Cyber Liability"
                 ],
-                "validUntil": "2025-10-15",
-                "quoteSummaryPDFUrl": "https://carriera.com/quotes/QUOTE-CARR001-004.pdf"
+                "validUntil": "2025-10-25",
+                "quoteSummaryPDFUrl": "https://carrierb.com/quotes/QUOTE-CARR002-002.pdf"
             }
         },
         {
             "queueId": "QUEUE-20250903-003",
-            "insuranceCompanyId": "CARR007",
-            "status": "Quote Ready",
-            "quoteDetails": {
-                "quoteId": "QUOTE-CARR007-006",
-                "premium": 1800.0,
-                "coverageLimit": 2000000,
-                "deductible": 250,
-                "addOns": [
-                    "Cyber Liability",
-                    "Professional Liability"
-                ],
-                "validUntil": "2025-11-01",
-                "quoteSummaryPDFUrl": "https://carrierg.com/quotes/QUOTE-CARR007-006.pdf"
-            }
-        },
-        {
-            "queueId": "QUEUE-20250903-004",
-            "insuranceCompanyId": "CARR006",
-            "status": "Quote Ready",
-            "quoteDetails": {
-                "quoteId": "QUOTE-CARR006-003",
-                "premium": 1600.0,
-                "coverageLimit": 1500000,
-                "deductible": 300,
-                "addOns": [
-                    "Business Interruption"
-                ],
-                "validUntil": "2025-10-20",
-                "quoteSummaryPDFUrl": "https://carrierf.com/quotes/QUOTE-CARR006-003.pdf"
-            }
-        },
-        {
-            "queueId": "QUEUE-20250903-005",
             "insuranceCompanyId": "CARR003",
             "status": "Quote Ready",
             "quoteDetails": {
-                "quoteId": "QUOTE-CARR003-005",
+                "quoteId": "QUOTE-CARR003-003",
                 "premium": 1300.0,
                 "coverageLimit": 800000,
                 "deductible": 600,
@@ -234,89 +171,122 @@
                     "Professional Liability"
                 ],
                 "validUntil": "2025-10-10",
-                "quoteSummaryPDFUrl": "https://carrierc.com/quotes/QUOTE-CARR003-005.pdf"
+                "quoteSummaryPDFUrl": "https://carrierc.com/quotes/QUOTE-CARR003-003.pdf"
+            }
+        },
+        {
+            "queueId": "QUEUE-20250903-004",
+            "insuranceCompanyId": "CARR004",
+            "status": "Quote Ready",
+            "quoteDetails": {
+                "quoteId": "QUOTE-CARR004-004",
+                "premium": 2000.0,
+                "coverageLimit": 2500000,
+                "deductible": 400,
+                "addOns": [
+                    "Business Interruption",
+                    "Cyber Liability"
+                ],
+                "validUntil": "2025-11-05",
+                "quoteSummaryPDFUrl": "https://carrierd.com/quotes/QUOTE-CARR004-004.pdf"
+            }
+        },
+        {
+            "queueId": "QUEUE-20250903-005",
+            "insuranceCompanyId": "CARR005",
+            "status": "Quote Ready",
+            "quoteDetails": {
+                "quoteId": "QUOTE-CARR005-005",
+                "premium": 1250.0,
+                "coverageLimit": 900000,
+                "deductible": 700,
+                "addOns": [
+                    "Professional Liability"
+                ],
+                "validUntil": "2025-10-15",
+                "quoteSummaryPDFUrl": "https://carriere.com/quotes/QUOTE-CARR005-005.pdf"
             }
         },
         {
             "queueId": "QUEUE-20250903-006",
-            "insuranceCompanyId": "CARR002",
+            "insuranceCompanyId": "CARR006",
             "status": "Quote Ready",
             "quoteDetails": {
-                "quoteId": "QUOTE-CARR002-007",
-                "premium": 1100.0,
-                "coverageLimit": 700000,
-                "deductible": 800,
+                "quoteId": "QUOTE-CARR006-006",
+                "premium": 1600.0,
+                "coverageLimit": 1500000,
+                "deductible": 300,
                 "addOns": [
-                    "Cyber Liability"
+                    "Business Interruption"
                 ],
-                "validUntil": "2025-10-25",
-                "quoteSummaryPDFUrl": "https://carrierb.com/quotes/QUOTE-CARR002-007.pdf"
+                "validUntil": "2025-10-20",
+                "quoteSummaryPDFUrl": "https://carrierf.com/quotes/QUOTE-CARR006-006.pdf"
             }
         },
         {
             "queueId": "QUEUE-20250903-007",
-            "insuranceCompanyId": "CARR005",
+            "insuranceCompanyId": "CARR007",
             "status": "Quote Ready",
             "quoteDetails": {
-                "quoteId": "QUOTE-CARR005-008",
-                "premium": 1400.0,
-                "coverageLimit": 900000,
-                "deductible": 550,
+                "quoteId": "QUOTE-CARR007-007",
+                "premium": 1800.0,
+                "coverageLimit": 2000000,
+                "deductible": 250,
                 "addOns": [
-                    "Business Interruption",
+                    "Cyber Liability",
                     "Professional Liability"
                 ],
-                "validUntil": "2025-11-05",
-                "quoteSummaryPDFUrl": "https://carriere.com/quotes/QUOTE-CARR005-008.pdf"
+                "validUntil": "2025-11-01",
+                "quoteSummaryPDFUrl": "https://carrierg.com/quotes/QUOTE-CARR007-007.pdf"
             }
         },
         {
             "queueId": "QUEUE-20250903-008",
-            "insuranceCompanyId": "CARR004",
+            "insuranceCompanyId": "CARR008",
             "status": "Quote Ready",
             "quoteDetails": {
-                "quoteId": "QUOTE-CARR004-009",
-                "premium": 1700.0,
-                "coverageLimit": 1200000,
-                "deductible": 400,
+                "quoteId": "QUOTE-CARR008-008",
+                "premium": 1400.0,
+                "coverageLimit": 950000,
+                "deductible": 550,
                 "addOns": [
                     "General Liability"
                 ],
-                "validUntil": "2025-10-30",
-                "quoteSummaryPDFUrl": "https://carrierd.com/quotes/QUOTE-CARR004-009.pdf"
+                "validUntil": "2025-10-18",
+                "quoteSummaryPDFUrl": "https://carrierh.com/quotes/QUOTE-CARR008-008.pdf"
             }
         },
         {
             "queueId": "QUEUE-20250903-009",
-            "insuranceCompanyId": "CARR010",
+            "insuranceCompanyId": "CARR009",
             "status": "Quote Ready",
             "quoteDetails": {
-                "quoteId": "QUOTE-CARR010-010",
-                "premium": 1550.0,
-                "coverageLimit": 1100000,
-                "deductible": 450,
+                "quoteId": "QUOTE-CARR009-009",
+                "premium": 1150.0,
+                "coverageLimit": 750000,
+                "deductible": 650,
                 "addOns": [
                     "Cyber Liability",
                     "Business Interruption"
                 ],
-                "validUntil": "2025-11-10",
-                "quoteSummaryPDFUrl": "https://carrierj.com/quotes/QUOTE-CARR010-010.pdf"
+                "validUntil": "2025-10-22",
+                "quoteSummaryPDFUrl": "https://carrieri.com/quotes/QUOTE-CARR009-009.pdf"
             }
         },
         {
             "queueId": "QUEUE-20250903-010",
-            "insuranceCompanyId": "CARR009",
+            "insuranceCompanyId": "CARR010",
             "status": "Quote Ready",
             "quoteDetails": {
-                "quoteId": "QUOTE-CARR009-011",
-                "premium": 1250.0,
-                "coverageLimit": 850000,
-                "deductible": 650,
+                "quoteId": "QUOTE-CARR010-010",
+                "premium": 2100.0,
+                "coverageLimit": 3000000,
+                "deductible": 350,
                 "addOns": [
                     "Professional Liability"
                 ],
-                "validUntil": "2025-11-15",
-                "quoteSummaryPDFUrl": "https://carrieri.com/quotes/QUOTE-CARR009-011.pdf"
+                "validUntil": "2025-11-10",
+                "quoteSummaryPDFUrl": "https://carrierj.com/quotes/QUOTE-CARR010-010.pdf"
             }
         }
     ]
