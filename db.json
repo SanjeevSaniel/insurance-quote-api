@@ -166,7 +166,6 @@
     "fetchQuotes": [
         {
             "queueId": "QUEUE-20250903-001",
-            "insuranceCompanyId": "CARR001",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR001-001",
@@ -183,7 +182,6 @@
         },
         {
             "queueId": "QUEUE-20250903-002",
-            "insuranceCompanyId": "CARR001",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR001-004",
@@ -199,7 +197,6 @@
         },
         {
             "queueId": "QUEUE-20250903-003",
-            "insuranceCompanyId": "CARR007",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR007-006",
@@ -216,7 +213,6 @@
         },
         {
             "queueId": "QUEUE-20250903-004",
-            "insuranceCompanyId": "CARR006",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR006-003",
@@ -232,7 +228,6 @@
         },
         {
             "queueId": "QUEUE-20250903-005",
-            "insuranceCompanyId": "CARR003",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR003-005",
@@ -249,7 +244,6 @@
         },
         {
             "queueId": "QUEUE-20250903-006",
-            "insuranceCompanyId": "CARR002",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR002-007",
@@ -265,7 +259,6 @@
         },
         {
             "queueId": "QUEUE-20250903-007",
-            "insuranceCompanyId": "CARR005",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR005-008",
@@ -282,7 +275,6 @@
         },
         {
             "queueId": "QUEUE-20250903-008",
-            "insuranceCompanyId": "CARR004",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR004-009",
@@ -298,7 +290,6 @@
         },
         {
             "queueId": "QUEUE-20250903-009",
-            "insuranceCompanyId": "CARR010",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR010-010",
@@ -315,7 +306,6 @@
         },
         {
             "queueId": "QUEUE-20250903-010",
-            "insuranceCompanyId": "CARR009",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR009-011",
