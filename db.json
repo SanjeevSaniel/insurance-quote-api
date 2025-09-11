@@ -153,25 +153,12 @@
     ],
     "quotes": [
         {
-            "id": 1,
-            "queueId": "QUEUE-20250903-001",
-            "requestId": "QUOTE-20250903-001",
-            "eligibilityResponseId": "ELIG-20250903-001",
-            "insuranceCompanyId": "CARR001",
-            "status": "Quote Processing",
-            "estimatedCompletionTime": "2025-09-04T11:30:00Z",
-            "timestamp": "2025-09-03T11:35:00Z"
-        },
-        {
-            "id": 2,
             "queueId": "QUEUE-20250903-002",
-            "requestId": "QUOTE-20250903-002",
-            "eligibilityResponseId": "ELIG-20250903-002",
             "insuranceCompanyId": "CARR002",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR002-002",
-                "premium": 1450.00,
+                "premium": 1450.0,
                 "coverageLimit": 1000000,
                 "deductible": 500,
                 "addOns": [
@@ -184,25 +171,12 @@
             "timestamp": "2025-09-04T11:30:00Z"
         },
         {
-            "id": 3,
-            "queueId": "QUEUE-20250903-003",
-            "requestId": "QUOTE-20250903-003",
-            "eligibilityResponseId": "ELIG-20250903-003",
-            "insuranceCompanyId": "CARR003",
-            "status": "Quote Failed",
-            "reason": "Unable to provide coverage for specified risk profile",
-            "timestamp": "2025-09-04T12:15:00Z"
-        },
-        {
-            "id": 4,
             "queueId": "QUEUE-20250903-004",
-            "requestId": "QUOTE-20250903-004",
-            "eligibilityResponseId": "ELIG-20250903-001",
             "insuranceCompanyId": "CARR001",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR001-004",
-                "premium": 1200.00,
+                "premium": 1200.0,
                 "coverageLimit": 750000,
                 "deductible": 750,
                 "addOns": [
@@ -214,25 +188,12 @@
             "timestamp": "2025-09-04T13:00:00Z"
         },
         {
-            "id": 5,
-            "queueId": "QUEUE-20250903-005",
-            "requestId": "QUOTE-20250903-005",
-            "eligibilityResponseId": "ELIG-20250903-006",
-            "insuranceCompanyId": "CARR006",
-            "status": "Quote Processing",
-            "estimatedCompletionTime": "2025-09-05T10:00:00Z",
-            "timestamp": "2025-09-04T14:30:00Z"
-        },
-        {
-            "id": 6,
             "queueId": "QUEUE-20250903-006",
-            "requestId": "QUOTE-20250903-006",
-            "eligibilityResponseId": "ELIG-20250903-007",
             "insuranceCompanyId": "CARR007",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR007-006",
-                "premium": 1800.00,
+                "premium": 1800.0,
                 "coverageLimit": 2000000,
                 "deductible": 250,
                 "addOns": [
