@@ -1,7 +1,6 @@
 {
     "eligibility": [
         {
-            "id": 1,
             "requestId": "ELIG-20250903-001",
             "responseStatus": "Eligible",
             "CarrierName": "Carrier A Insurance",
@@ -11,7 +10,6 @@
             "NAICCode": 12345
         },
         {
-            "id": 2,
             "requestId": "ELIG-20250903-002",
             "responseStatus": "Eligible",
             "CarrierName": "Carrier B Group",
@@ -21,7 +19,6 @@
             "NAICCode": 67890
         },
         {
-            "id": 3,
             "requestId": "ELIG-20250903-003",
             "responseStatus": "Eligible",
             "CarrierName": "Carrier C Insurance",
@@ -31,7 +28,6 @@
             "NAICCode": 13579
         },
         {
-            "id": 4,
             "requestId": "ELIG-20250903-004",
             "responseStatus": "Not Eligible",
             "CarrierName": "Carrier D Corp",
@@ -41,7 +37,6 @@
             "NAICCode": 24680
         },
         {
-            "id": 5,
             "requestId": "ELIG-20250903-005",
             "responseStatus": "Not Eligible",
             "CarrierName": "Carrier E Health",
@@ -51,7 +46,6 @@
             "NAICCode": 98765
         },
         {
-            "id": 6,
             "requestId": "ELIG-20250903-006",
             "responseStatus": "Eligible",
             "CarrierName": "Carrier F Solutions",
@@ -61,7 +55,6 @@
             "NAICCode": 54321
         },
         {
-            "id": 7,
             "requestId": "ELIG-20250903-007",
             "responseStatus": "Eligible",
             "CarrierName": "Carrier G Insurance",
@@ -71,7 +64,6 @@
             "NAICCode": 13579
         },
         {
-            "id": 8,
             "requestId": "ELIG-20250903-008",
             "responseStatus": "Not Eligible",
             "CarrierName": "Carrier H Services",
@@ -81,7 +73,6 @@
             "NAICCode": 24680
         },
         {
-            "id": 9,
             "requestId": "ELIG-20250903-009",
             "responseStatus": "Not Eligible",
             "CarrierName": "Carrier I Insure",
@@ -91,7 +82,6 @@
             "NAICCode": 98765
         },
         {
-            "id": 10,
             "requestId": "ELIG-20250903-010",
             "responseStatus": "Not Eligible",
             "CarrierName": "Carrier J Group",
@@ -166,6 +156,7 @@
     "fetchQuotes": [
         {
             "queueId": "QUEUE-20250903-001",
+            "insuranceCompanyId": "CARR001",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR001-001",
@@ -182,6 +173,7 @@
         },
         {
             "queueId": "QUEUE-20250903-002",
+            "insuranceCompanyId": "CARR001",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR001-004",
@@ -197,6 +189,7 @@
         },
         {
             "queueId": "QUEUE-20250903-003",
+            "insuranceCompanyId": "CARR007",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR007-006",
@@ -213,6 +206,7 @@
         },
         {
             "queueId": "QUEUE-20250903-004",
+            "insuranceCompanyId": "CARR006",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR006-003",
@@ -228,6 +222,7 @@
         },
         {
             "queueId": "QUEUE-20250903-005",
+            "insuranceCompanyId": "CARR003",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR003-005",
@@ -244,6 +239,7 @@
         },
         {
             "queueId": "QUEUE-20250903-006",
+            "insuranceCompanyId": "CARR002",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR002-007",
@@ -259,6 +255,7 @@
         },
         {
             "queueId": "QUEUE-20250903-007",
+            "insuranceCompanyId": "CARR005",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR005-008",
@@ -275,6 +272,7 @@
         },
         {
             "queueId": "QUEUE-20250903-008",
+            "insuranceCompanyId": "CARR004",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR004-009",
@@ -290,6 +288,7 @@
         },
         {
             "queueId": "QUEUE-20250903-009",
+            "insuranceCompanyId": "CARR010",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR010-010",
@@ -306,6 +305,7 @@
         },
         {
             "queueId": "QUEUE-20250903-010",
+            "insuranceCompanyId": "CARR009",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR009-011",
