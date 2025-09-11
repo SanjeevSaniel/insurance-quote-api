@@ -151,71 +151,61 @@
             "queueId": "QUEUE-20250903-001",
             "insuranceCompanyId": "CARR001",
             "eligibilityResponseId": "ELIG-20250903-001",
-            "status": "Quote in Progress",
-            "timestamp": "2025-09-04T11:30:00Z"
+            "status": "Quote in Progress"
         },
         {
             "queueId": "QUEUE-20250903-002",
             "insuranceCompanyId": "CARR002",
             "eligibilityResponseId": "ELIG-20250903-002",
-            "status": "Quote in Progress",
-            "timestamp": "2025-09-04T13:00:00Z"
+            "status": "Quote in Progress"
         },
         {
             "queueId": "QUEUE-20250903-003",
             "insuranceCompanyId": "CARR003",
             "eligibilityResponseId": "ELIG-20250903-003",
-            "status": "Quote in Progress",
-            "timestamp": "2025-09-04T15:45:00Z"
+            "status": "Quote in Progress"
         },
         {
             "queueId": "QUEUE-20250903-004",
             "insuranceCompanyId": "CARR004",
             "eligibilityResponseId": "ELIG-20250903-004",
-            "status": "Quote in Progress",
-            "timestamp": "2025-09-04T16:20:00Z"
+            "status": "Quote in Progress"
         },
         {
             "queueId": "QUEUE-20250903-005",
             "insuranceCompanyId": "CARR005",
             "eligibilityResponseId": "ELIG-20250903-005",
-            "status": "Quote in Progress",
-            "timestamp": "2025-09-04T17:10:00Z"
+            "status": "Quote in Progress"
         },
         {
             "queueId": "QUEUE-20250903-006",
             "insuranceCompanyId": "CARR006",
             "eligibilityResponseId": "ELIG-20250903-006",
-            "status": "Quote in Progress",
-            "timestamp": "2025-09-04T18:00:00Z"
+            "status": "Quote in Progress"
         },
         {
             "queueId": "QUEUE-20250903-007",
             "insuranceCompanyId": "CARR007",
             "eligibilityResponseId": "ELIG-20250903-007",
-            "status": "Quote in Progress",
-            "timestamp": "2025-09-04T19:30:00Z"
+            "status": "Quote in Progress"
         },
         {
             "queueId": "QUEUE-20250903-008",
             "insuranceCompanyId": "CARR008",
             "eligibilityResponseId": "ELIG-20250903-008",
-            "status": "Quote in Progress",
-            "timestamp": "2025-09-04T20:15:00Z"
+            "status": "Quote in Progress"
         },
         {
             "queueId": "QUEUE-20250903-009",
             "insuranceCompanyId": "CARR009",
             "eligibilityResponseId": "ELIG-20250903-009",
-            "status": "Quote in Progress",
-            "timestamp": "2025-09-04T21:00:00Z"
+            "status": "Quote in Progress"
         },
         {
             "queueId": "QUEUE-20250903-010",
             "insuranceCompanyId": "CARR010",
             "eligibilityResponseId": "ELIG-20250903-010",
-            "status": "Quote in Progress",
-            "timestamp": "2025-09-04T22:30:00Z"
+            "status": "Quote in Progress"
         }
     ],
     "fetchQuotes": [
