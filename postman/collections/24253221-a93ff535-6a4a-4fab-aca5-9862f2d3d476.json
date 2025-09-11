@@ -372,12 +372,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/quotes?queueId={{current_queueId}}",
+					"raw": "{{base_url}}/fetchQuotes?queueId={{current_queueId}}",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"quotes"
+						"fetchQuotes"
 					],
 					"query": [
 						{
