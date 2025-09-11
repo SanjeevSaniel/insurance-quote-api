@@ -156,6 +156,64 @@
             "queueId": "QUEUE-20250903-002",
             "insuranceCompanyId": "CARR002",
             "eligibilityResponseId": "ELIG-20250903-002",
+            "status": "Quote in Progress",
+            "quoteDetails": {
+                "quoteId": "QUOTE-CARR002-002",
+                "premium": 1450.0,
+                "coverageLimit": 1000000,
+                "deductible": 500,
+                "addOns": [
+                    "Cyber Liability",
+                    "Business Interruption"
+                ],
+                "validUntil": "2025-10-03",
+                "quoteSummaryPDFUrl": "https://carrierb.com/quotes/QUOTE-CARR002-002.pdf"
+            },
+            "timestamp": "2025-09-04T11:30:00Z"
+        },
+        {
+            "queueId": "QUEUE-20250903-004",
+            "insuranceCompanyId": "CARR001",
+            "eligibilityResponseId": "ELIG-20250903-001",
+            "status": "Quote in Progress",
+            "quoteDetails": {
+                "quoteId": "QUOTE-CARR001-004",
+                "premium": 1200.0,
+                "coverageLimit": 750000,
+                "deductible": 750,
+                "addOns": [
+                    "General Liability"
+                ],
+                "validUntil": "2025-10-15",
+                "quoteSummaryPDFUrl": "https://carriera.com/quotes/QUOTE-CARR001-004.pdf"
+            },
+            "timestamp": "2025-09-04T13:00:00Z"
+        },
+        {
+            "queueId": "QUEUE-20250903-006",
+            "insuranceCompanyId": "CARR007",
+            "eligibilityResponseId": "ELIG-20250903-007",
+            "status": "Quote in Progress",
+            "quoteDetails": {
+                "quoteId": "QUOTE-CARR007-006",
+                "premium": 1800.0,
+                "coverageLimit": 2000000,
+                "deductible": 250,
+                "addOns": [
+                    "Cyber Liability",
+                    "Professional Liability"
+                ],
+                "validUntil": "2025-11-01",
+                "quoteSummaryPDFUrl": "https://carrierg.com/quotes/QUOTE-CARR007-006.pdf"
+            },
+            "timestamp": "2025-09-04T15:45:00Z"
+        }
+    ],
+    "fetchQuotes": [
+        {
+            "queueId": "QUEUE-20250903-002",
+            "insuranceCompanyId": "CARR002",
+            "eligibilityResponseId": "ELIG-20250903-002",
             "status": "Quote Ready",
             "quoteDetails": {
                 "quoteId": "QUOTE-CARR002-002",
