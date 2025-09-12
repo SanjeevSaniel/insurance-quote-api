@@ -385,7 +385,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "",
+						"value": "application/json",
 						"type": "text"
 					}
 				],
