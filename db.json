@@ -81,7 +81,7 @@
                 "quoteSummaryPDFUrl": "https://carriera.com/quotes/QUOTE-CARR001-001.pdf"
             },
             "RankingCategory": "Best Value for Money",
-            "LogoUrl": "https://example.com/logos/carrier-001-logo.png",
+            "LogoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Geico_logo.svg/440px-Geico_logo.svg.png",
             "StarRating": 4.2,
             "ReviewCount": 3200,
             "AMBestRating": "A",
@@ -104,7 +104,7 @@
                 "quoteSummaryPDFUrl": "https://carrierb.com/quotes/QUOTE-CARR002-002.pdf"
             },
             "RankingCategory": "Most Affordable Option",
-            "LogoUrl": "https://example.com/logos/carrier-002-logo.png",
+            "LogoUrl": "https://cdn-res.keymedia.com/cms/images/us/003/0359_638792573152530980.png",
             "StarRating": 3.8,
             "ReviewCount": 2800,
             "AMBestRating": "A-",
@@ -128,7 +128,7 @@
                 "quoteSummaryPDFUrl": "https://carrierc.com/quotes/QUOTE-CARR003-003.pdf"
             },
             "RankingCategory": "Top Choice for Professional Services",
-            "LogoUrl": "https://example.com/logos/carrier-003-logo.png",
+            "LogoUrl": "https://programbusiness.com/wp-content/uploads/2019/03/the-hartford-insurance_0-1.png",
             "StarRating": 4.1,
             "ReviewCount": 4500,
             "AMBestRating": "A+",
