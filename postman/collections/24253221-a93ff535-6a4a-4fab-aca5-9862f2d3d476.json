@@ -103,7 +103,13 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{base_url}}/eligibility?requestId={{current_requestId}}",
 					"host": [
@@ -230,7 +236,13 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{base_url}}/quotes?eligibilityResponseId={{current_eligibilityResponseId}}",
 					"host": [
@@ -370,7 +382,13 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{base_url}}/fetchQuotes?queueId={{current_queueId}}",
 					"host": [
