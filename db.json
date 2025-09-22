@@ -79,7 +79,14 @@
                 ],
                 "validUntil": "2025-10-03",
                 "quoteSummaryPDFUrl": "https://carriera.com/quotes/QUOTE-CARR001-001.pdf"
-            }
+            },
+            "RankingCategory": "Best Value for Money",
+            "LogoUrl": "https://example.com/logos/carrier-001-logo.png",
+            "StarRating": 4.2,
+            "ReviewCount": 3200,
+            "AMBestRating": "A",
+            "ComplaintLevel": "Low",
+            "PremiumAmount": 1450.0
         },
         {
             "queueId": "QUEUE-20250903-002",
@@ -95,7 +102,14 @@
                 ],
                 "validUntil": "2025-10-25",
                 "quoteSummaryPDFUrl": "https://carrierb.com/quotes/QUOTE-CARR002-002.pdf"
-            }
+            },
+            "RankingCategory": "Most Affordable Option",
+            "LogoUrl": "https://example.com/logos/carrier-002-logo.png",
+            "StarRating": 3.8,
+            "ReviewCount": 2800,
+            "AMBestRating": "A-",
+            "ComplaintLevel": "Medium",
+            "PremiumAmount": 1100.0
         },
         {
             "queueId": "QUEUE-20250903-003",
@@ -112,7 +126,14 @@
                 ],
                 "validUntil": "2025-10-10",
                 "quoteSummaryPDFUrl": "https://carrierc.com/quotes/QUOTE-CARR003-003.pdf"
-            }
+            },
+            "RankingCategory": "Top Choice for Professional Services",
+            "LogoUrl": "https://example.com/logos/carrier-003-logo.png",
+            "StarRating": 4.1,
+            "ReviewCount": 4500,
+            "AMBestRating": "A+",
+            "ComplaintLevel": "Low",
+            "PremiumAmount": 1300.0
         },
         {
             "queueId": "QUEUE-20250903-006",
@@ -128,7 +149,14 @@
                 ],
                 "validUntil": "2025-10-20",
                 "quoteSummaryPDFUrl": "https://carrierf.com/quotes/QUOTE-CARR006-006.pdf"
-            }
+            },
+            "RankingCategory": "Highest Coverage Limit",
+            "LogoUrl": "https://example.com/logos/carrier-006-logo.png",
+            "StarRating": 4.5,
+            "ReviewCount": 6200,
+            "AMBestRating": "A+",
+            "ComplaintLevel": "Very Low",
+            "PremiumAmount": 1600.0
         },
         {
             "queueId": "QUEUE-20250903-007",
@@ -145,7 +173,14 @@
                 ],
                 "validUntil": "2025-11-01",
                 "quoteSummaryPDFUrl": "https://carrierg.com/quotes/QUOTE-CARR007-007.pdf"
-            }
+            },
+            "RankingCategory": "Premium Coverage Option",
+            "LogoUrl": "https://example.com/logos/carrier-007-logo.png",
+            "StarRating": 4.7,
+            "ReviewCount": 8900,
+            "AMBestRating": "A++",
+            "ComplaintLevel": "Very Low",
+            "PremiumAmount": 1800.0
         }
     ]
 }
