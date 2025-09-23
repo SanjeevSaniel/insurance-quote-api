@@ -1,7 +1,6 @@
 # Insurance Quote API Documentation
 
 ## Overview
-
 This document outlines the API endpoints for the Insurance Quote system, including eligibility checks, quote generation, and quote fetching across multiple service instances.
 
 ---
@@ -9,7 +8,6 @@ This document outlines the API endpoints for the Insurance Quote system, includi
 ## API Endpoints
 
 ### 1. Eligibility Check
-
 **Base URL:** `https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api`
 
 **Endpoint:** `/eligibility?requestId={requestId}`
@@ -19,19 +17,16 @@ This document outlines the API endpoints for the Insurance Quote system, includi
 **Description:** Check eligibility for insurance quotes based on request ID
 
 **Parameters:**
-
 - `requestId` (string, required): Unique identifier for the eligibility request
 
 **Example:**
-
 ```
-GET https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api/eligibility?requestId=REQ-20250903-001
+GET https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api/eligibility?requestId=ELIG-20250903-001
 ```
 
 ---
 
 ### 2. Generate Quotes
-
 **Base URL:** `https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api`
 
 **Endpoint:** `/quotes?eligibilityResponseId={eligibilityResponseId}`
@@ -41,11 +36,9 @@ GET https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api/eligib
 **Description:** Generate insurance quotes based on eligibility response
 
 **Parameters:**
-
 - `eligibilityResponseId` (string, required): Response ID from eligibility check
 
 **Example:**
-
 ```
 GET https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api/quotes?eligibilityResponseId=ELIG-20250903-001
 ```
@@ -55,7 +48,6 @@ GET https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api/quotes
 ## Fetch Quotes by Queue ID
 
 ### 3. Fetch Quotes - Service Instance 1
-
 **Base URL:** `https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api-2`
 
 **Endpoint:** `/fetchQuotes?queueId={queueId}`
@@ -66,8 +58,9 @@ GET https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api/quotes
 
 **Queue ID Range:** `QUEUE-20250903-001` ↔ `QUEUE-20250903-005`
 
-**Supported Queue IDs:**
+**Repository:** [insurance-quote-api-2/db.json](https://github.com/SanjeevSaniel/insurance-quote-api-2/blob/main/db.json)
 
+**Supported Queue IDs:**
 - QUEUE-20250903-001 (GEICO)
 - QUEUE-20250903-002 (Allstate)
 - QUEUE-20250903-003 (The Hartford)
@@ -75,7 +68,6 @@ GET https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api/quotes
 - QUEUE-20250903-005 (Progressive)
 
 **Example:**
-
 ```
 GET https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api-2/fetchQuotes?queueId=QUEUE-20250903-001
 ```
@@ -83,7 +75,6 @@ GET https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api-2/fetc
 ---
 
 ### 4. Fetch Quotes - Service Instance 2
-
 **Base URL:** `https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api-3`
 
 **Endpoint:** `/fetchQuotes?queueId={queueId}`
@@ -94,8 +85,9 @@ GET https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api-2/fetc
 
 **Queue ID Range:** `QUEUE-20250903-006` ↔ `QUEUE-20250903-010`
 
-**Supported Queue IDs:**
+**Repository:** [insurance-quote-api-3/db.json](https://github.com/SanjeevSaniel/insurance-quote-api-3/blob/main/db.json)
 
+**Supported Queue IDs:**
 - QUEUE-20250903-006 (Liberty Mutual)
 - QUEUE-20250903-007 (Nationwide)
 - QUEUE-20250903-008 (Travelers)
@@ -103,7 +95,6 @@ GET https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api-2/fetc
 - QUEUE-20250903-010 (Farmers Insurance)
 
 **Example:**
-
 ```
 GET https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api-3/fetchQuotes?queueId=QUEUE-20250903-006
 ```
@@ -120,9 +111,9 @@ GET https://my-json-server.typicode.com/SanjeevSaniel/insurance-quote-api-3/fetc
 
 ## Service Distribution
 
-| Service Instance          | Queue ID Range                           | Insurance Companies                                             |
-| ------------------------- | ---------------------------------------- | --------------------------------------------------------------- |
-| **insurance-quote-api-2** | QUEUE-20250903-001 to QUEUE-20250903-005 | GEICO, Allstate, Hartford, State Farm, Progressive              |
+| Service Instance | Queue ID Range | Insurance Companies |
+|------------------|----------------|-------------------|
+| **insurance-quote-api-2** | QUEUE-20250903-001 to QUEUE-20250903-005 | GEICO, Allstate, Hartford, State Farm, Progressive |
 | **insurance-quote-api-3** | QUEUE-20250903-006 to QUEUE-20250903-010 | Liberty Mutual, Nationwide, Travelers, American Family, Farmers |
 
 ---
