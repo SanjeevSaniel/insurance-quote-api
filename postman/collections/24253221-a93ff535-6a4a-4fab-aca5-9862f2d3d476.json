@@ -554,7 +554,7 @@
 			"response": []
 		},
 		{
-			"name": "C. Quote Retrieval 2 Copy",
+			"name": "C. Quote Retrieval 3",
 			"event": [
 				{
 					"listen": "prerequest",
