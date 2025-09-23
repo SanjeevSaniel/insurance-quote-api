@@ -445,7 +445,8 @@
 							"console.log(\"🔄 API Call #\" + counter + \" at \" + now.toLocaleTimeString());"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				},
 				{
@@ -518,7 +519,8 @@
 							"}"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -536,9 +538,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{base_url}}/fetchQuotes?queueId={{current_queueId}}",
+					"raw": "{{base_url_2}}/fetchQuotes?queueId={{current_queueId}}",
 					"host": [
-						"{{base_url}}"
+						"{{base_url_2}}"
 					],
 					"path": [
 						"fetchQuotes"
@@ -591,7 +593,8 @@
 							"console.log(\"🔄 API Call #\" + counter + \" at \" + now.toLocaleTimeString());"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				},
 				{
@@ -664,7 +667,8 @@
 							"}"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -682,9 +686,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{base_url}}/fetchQuotes?queueId={{current_queueId}}",
+					"raw": "{{base_url_3}}/fetchQuotes?queueId={{current_queueId}}",
 					"host": [
-						"{{base_url}}"
+						"{{base_url_3}}"
 					],
 					"path": [
 						"fetchQuotes"
