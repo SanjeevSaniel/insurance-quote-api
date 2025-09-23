@@ -552,6 +552,152 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "C. Quote Retrieval 2 Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "86ba2e71-1c13-4ac5-8987-958931ed2cc4",
+						"exec": [
+							"// Check if we have queueId from previous call\r",
+							"const queueId = pm.environment.get(\"current_queueId\");\r",
+							"\r",
+							"if (!queueId) {\r",
+							"    console.log(\"No queueId found. Please run Quote Request first.\");\r",
+							"    // Set a default for testing\r",
+							"    pm.environment.set(\"current_queueId\", \"QUEUE-20250903-002\");\r",
+							"}\r",
+							"\r",
+							"console.log(\"Retrieving quote for queueId:\", pm.environment.get(\"current_queueId\"));\r",
+							"\r",
+							"// Increment API sequence counter\r",
+							"const counter = parseInt(pm.environment.get(\"api_sequence_counter\") || \"0\") + 1;\r",
+							"pm.environment.set(\"api_sequence_counter\", counter.toString());\r",
+							"\r",
+							"// Generate dynamic request ID with current timestamp\r",
+							"const now = new Date();\r",
+							"const dateStr = now.toISOString().slice(0,10).replace(/-/g,'');\r",
+							"const timeStr = now.toISOString().slice(11,19).replace(/:/g,'');\r",
+							"\r",
+							"// For eligibility requests\r",
+							"if (pm.request.url.path.includes('eligibility')) {\r",
+							"    const dynamicRequestId = `ELIG-${dateStr}-${counter.toString().padStart(3, '0')}`;\r",
+							"    pm.environment.set(\"current_requestId\", dynamicRequestId);\r",
+							"    console.log(\"🆔 Generated dynamic requestId:\", dynamicRequestId);\r",
+							"}\r",
+							"\r",
+							"console.log(\"🔄 API Call #\" + counter + \" at \" + now.toLocaleTimeString());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "32095715-8eea-4db1-ad99-89485d2efa81",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Generate timestamp for quote retrieval\r",
+							"const retrievalTimestamp = new Date().toISOString();\r",
+							"const retrievalTime = new Date().getTime();\r",
+							"\r",
+							"pm.environment.set(\"quote_retrieval_timestamp\", retrievalTimestamp);\r",
+							"\r",
+							"const responseJson = pm.response.json();\r",
+							"if (responseJson && responseJson.length > 0) {\r",
+							"    const quoteRecord = responseJson[0];\r",
+							"    \r",
+							"    // Override timestamp with current time\r",
+							"    quoteRecord.timestamp = retrievalTimestamp;\r",
+							"    quoteRecord.retrieved_at = retrievalTime;\r",
+							"    \r",
+							"    // Calculate total processing time\r",
+							"    const requestTime = new Date(pm.environment.get(\"quote_request_timestamp\"));\r",
+							"    const totalProcessingTime = new Date(retrievalTimestamp) - requestTime;\r",
+							"    \r",
+							"    console.log(\"🕐 Quote retrieved at:\", retrievalTimestamp);\r",
+							"    console.log(\"📋 Status:\", quoteRecord.status);\r",
+							"    console.log(\"⏱️ Total processing time:\", Math.round(totalProcessingTime / 1000) + \" seconds\");\r",
+							"    \r",
+							"    if (quoteRecord.status === \"Quote Ready\" && quoteRecord.quoteDetails) {\r",
+							"        // Add dynamic quote generation timestamp\r",
+							"        quoteRecord.quoteDetails.generated_at = retrievalTimestamp;\r",
+							"        quoteRecord.quoteDetails.expires_at = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(); // 30 days\r",
+							"        \r",
+							"        console.log(\"💰 Premium:\", quoteRecord.quoteDetails.premium);\r",
+							"        console.log(\"🛡️ Coverage:\", quoteRecord.quoteDetails.coverageLimit);\r",
+							"        console.log(\"📅 Valid until:\", quoteRecord.quoteDetails.validUntil);\r",
+							"        \r",
+							"    } else if (quoteRecord.status === \"Quote Processing\") {\r",
+							"        // Calculate remaining processing time\r",
+							"        const estimatedCompletion = new Date(quoteRecord.estimatedCompletionTime || Date.now() + 60000);\r",
+							"        const remainingTime = estimatedCompletion - new Date();\r",
+							"        \r",
+							"        console.log(\"⏳ Still processing... Estimated remaining time:\", Math.round(remainingTime / 60000) + \" minutes\");\r",
+							"        \r",
+							"    } else if (quoteRecord.status === \"Quote Failed\") {\r",
+							"        console.log(\"❌ Quote failed:\", quoteRecord.reason);\r",
+							"    }\r",
+							"    \r",
+							"    // Enhanced response with timing analysis\r",
+							"    const enhancedRetrievalResponse = {\r",
+							"        ...quoteRecord,\r",
+							"        timestamp: retrievalTimestamp,\r",
+							"        total_processing_duration: Math.round(totalProcessingTime / 1000) + \" seconds\",\r",
+							"        api_call_sequence: {\r",
+							"            eligibility_at: pm.environment.get(\"eligibility_timestamp\"),\r",
+							"            quote_request_at: pm.environment.get(\"quote_request_timestamp\"),\r",
+							"            quote_retrieval_at: retrievalTimestamp\r",
+							"        }\r",
+							"    };\r",
+							"    \r",
+							"    pm.environment.set(\"last_quote_retrieval_response\", JSON.stringify(enhancedRetrievalResponse));\r",
+							"    \r",
+							"} else {\r",
+							"    console.log(\"❌ No quote found for queueId:\", pm.environment.get(\"current_queueId\"));\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "24253221-499c4208-7513-4187-aef3-0900f9566f9a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/fetchQuotes?queueId={{current_queueId}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"fetchQuotes"
+					],
+					"query": [
+						{
+							"key": "queueId",
+							"value": "{{current_queueId}}"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
