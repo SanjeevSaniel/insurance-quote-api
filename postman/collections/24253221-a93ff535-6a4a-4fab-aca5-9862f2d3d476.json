@@ -408,7 +408,7 @@
 			"response": []
 		},
 		{
-			"name": "C. Quote Retrieval 2",
+			"name": "C2. Quote Retrieval 2",
 			"event": [
 				{
 					"listen": "prerequest",
