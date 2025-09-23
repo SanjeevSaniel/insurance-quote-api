@@ -62,5 +62,125 @@
             "eligibilityResponseId": "ELIG-20250903-007",
             "status": "Quote in Progress"
         }
+    ],
+    "fetchQuotes": [
+        {
+            "queueId": "QUEUE-20250903-001",
+            "insuranceCompanyId": "CARR001",
+            "status": "Quote Ready",
+            "quoteDetails": {
+                "quoteId": "QUOTE-CARR001-001",
+                "premium": 1450.0,
+                "coverageLimit": 1000000,
+                "deductible": 500,
+                "addOns": [
+                    "Cyber Liability",
+                    "Business Interruption"
+                ],
+                "validUntil": "2025-10-03",
+                "quoteSummaryPDFUrl": "https://carriera.com/quotes/QUOTE-CARR001-001.pdf"
+            },
+            "rankingCategory": "Best Value for Money",
+            "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Geico_logo.svg/440px-Geico_logo.svg.png",
+            "starRating": 4.2,
+            "reviewCount": 3200,
+            "amBestRating": "A",
+            "complaintLevel": "Low",
+            "premiumAmount": 1450.0
+        },
+        {
+            "queueId": "QUEUE-20250903-002",
+            "insuranceCompanyId": "CARR002",
+            "status": "Quote Ready",
+            "quoteDetails": {
+                "quoteId": "QUOTE-CARR002-002",
+                "premium": 1100.0,
+                "coverageLimit": 700000,
+                "deductible": 800,
+                "addOns": [
+                    "Cyber Liability"
+                ],
+                "validUntil": "2025-10-25",
+                "quoteSummaryPDFUrl": "https://carrierb.com/quotes/QUOTE-CARR002-002.pdf"
+            },
+            "rankingCategory": "Most Affordable Option",
+            "logoUrl": "https://cdn-res.keymedia.com/cms/images/us/003/0359_638792573152530980.png",
+            "starRating": 3.8,
+            "reviewCount": 2800,
+            "amBestRating": "A-",
+            "complaintLevel": "Medium",
+            "premiumAmount": 1100.0
+        },
+        {
+            "queueId": "QUEUE-20250903-003",
+            "insuranceCompanyId": "CARR003",
+            "status": "Quote Ready",
+            "quoteDetails": {
+                "quoteId": "QUOTE-CARR003-003",
+                "premium": 1300.0,
+                "coverageLimit": 800000,
+                "deductible": 600,
+                "addOns": [
+                    "General Liability",
+                    "Professional Liability"
+                ],
+                "validUntil": "2025-10-10",
+                "quoteSummaryPDFUrl": "https://carrierc.com/quotes/QUOTE-CARR003-003.pdf"
+            },
+            "rankingCategory": "Top Choice for Professional Services",
+            "logoUrl": "https://programbusiness.com/wp-content/uploads/2019/03/the-hartford-insurance_0-1.png",
+            "starRating": 4.1,
+            "reviewCount": 4500,
+            "amBestRating": "A+",
+            "complaintLevel": "Low",
+            "premiumAmount": 1300.0
+        },
+        {
+            "queueId": "QUEUE-20250903-006",
+            "insuranceCompanyId": "CARR006",
+            "status": "Quote Ready",
+            "quoteDetails": {
+                "quoteId": "QUOTE-CARR006-006",
+                "premium": 1600.0,
+                "coverageLimit": 1500000,
+                "deductible": 300,
+                "addOns": [
+                    "Business Interruption"
+                ],
+                "validUntil": "2025-10-20",
+                "quoteSummaryPDFUrl": "https://carrierf.com/quotes/QUOTE-CARR006-006.pdf"
+            },
+            "rankingCategory": "Highest Coverage Limit",
+            "logoUrl": "https://logos-world.net/wp-content/uploads/2020/11/State-Farm-Logo.png",
+            "starRating": 4.5,
+            "reviewCount": 6200,
+            "amBestRating": "A+",
+            "complaintLevel": "Very Low",
+            "premiumAmount": 1600.0
+        },
+        {
+            "queueId": "QUEUE-20250903-007",
+            "insuranceCompanyId": "CARR007",
+            "status": "Quote Ready",
+            "quoteDetails": {
+                "quoteId": "QUOTE-CARR007-007",
+                "premium": 1800.0,
+                "coverageLimit": 2000000,
+                "deductible": 250,
+                "addOns": [
+                    "Cyber Liability",
+                    "Professional Liability"
+                ],
+                "validUntil": "2025-11-01",
+                "quoteSummaryPDFUrl": "https://carrierg.com/quotes/QUOTE-CARR007-007.pdf"
+            },
+            "rankingCategory": "Premium Coverage Option",
+            "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Allstate_logo.svg/640px-Allstate_logo.svg.png",
+            "starRating": 4.7,
+            "reviewCount": 8900,
+            "amBestRating": "A++",
+            "complaintLevel": "Very Low",
+            "premiumAmount": 1800.0
+        }
     ]
 }
